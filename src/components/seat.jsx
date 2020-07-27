@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-const handleClick = (event) => {
-  console.log(`seat selected ${event.target.checked}`);
-};
-
-const Seat = ({ number, status }) => (
+const Seat = ({
+  number,
+  status,
+  handleClick,
+}) => (
   <li
     className={`seatobj ${status}`}
     key={number.toString()}
@@ -23,6 +23,7 @@ const Seat = ({ number, status }) => (
 export default Seat;
 
 Seat.propTypes = {
+  handleClick: PropTypes.func.isRequired,
   number: PropTypes.number,
   status: PropTypes.string,
 };

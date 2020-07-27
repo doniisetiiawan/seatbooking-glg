@@ -2,9 +2,12 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Seat from './seat';
 
-const SeatRow = ({ seats }) => (
+const SeatRow = ({
+  seats,
+  onAddToCartClicked,
+}) => (
   <div>
-    <li className="row">
+    <li className="row row--1" key="1">
       <ol className="seatrow">
         {seats.map((seat) => (
           <Seat
@@ -12,6 +15,8 @@ const SeatRow = ({ seats }) => (
             number={seat.number}
             price={seat.price}
             status={seat.status}
+            rowNo={seat.rowNo}
+            handleClick={() => onAddToCartClicked(seat)}
           />
         ))}
       </ol>
@@ -22,6 +27,7 @@ const SeatRow = ({ seats }) => (
 export default SeatRow;
 
 SeatRow.propTypes = {
+  onAddToCartClicked: PropTypes.func.isRequired,
   seats: PropTypes.arrayOf(PropTypes.any),
 };
 

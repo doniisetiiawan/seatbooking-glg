@@ -4,6 +4,7 @@ import { getSeats } from './api/service';
 import SeatList from './components/seatList';
 import SeatRow from './components/seatRow';
 import Cart from './components/cart';
+
 import './App.css';
 
 class App extends React.Component {
